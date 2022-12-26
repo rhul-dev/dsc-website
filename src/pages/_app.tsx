@@ -4,6 +4,7 @@ import { Inter } from '@next/font/google';
 
 import '../styles/globals.css';
 import { DefaultSeo } from 'next-seo';
+import { Navbar } from '../components/Navbar';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -19,7 +20,10 @@ const MyApp: AppType = ({ Component, pageProps }) => {
       />
       <ThemeProvider attribute="class">
         <div className={`${inter.variable} font-sans`}>
-          <Component {...pageProps} />
+          <main className="container mx-auto pt-12">
+            <Navbar />
+            <Component {...pageProps} />
+          </main>
         </div>
       </ThemeProvider>
     </>
