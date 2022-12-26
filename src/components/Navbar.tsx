@@ -2,8 +2,8 @@ import { useTheme } from 'next-themes';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { FC, ReactNode, useEffect } from 'react';
-import { useState } from 'react';
+import type { FC, ReactNode } from 'react';
+import { useEffect, useState } from 'react';
 import { FaDiscord } from 'react-icons/fa';
 import {
   FiGithub,
@@ -11,7 +11,7 @@ import {
   FiLinkedin,
   FiMenu,
   FiMoon,
-  FiSun,
+  FiSun
 } from 'react-icons/fi';
 import { twMerge } from 'tailwind-merge';
 
