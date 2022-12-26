@@ -2,13 +2,16 @@ import { useTheme } from 'next-themes';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import type { FC, ReactNode } from 'react';
+import { FC, ReactNode, useEffect } from 'react';
 import { useState } from 'react';
 import { FaDiscord } from 'react-icons/fa';
 import {
-  FiGithub, FiInstagram, FiLinkedin, FiMenu,
+  FiGithub,
+  FiInstagram,
+  FiLinkedin,
+  FiMenu,
   FiMoon,
-  FiSun
+  FiSun,
 } from 'react-icons/fi';
 import { twMerge } from 'tailwind-merge';
 
@@ -47,8 +50,66 @@ const NavbarItem: FC<NavbarItemProps> = ({ children, href, externalLink }) => {
   );
 };
 
+const ThemeSwitcher = () => {
+  const [mounted, setMounted] = useState(false);
+  const { resolvedTheme, setTheme } = useTheme();
+
+  useEffect(() => setMounted(true), []);
+
+  if (!mounted) return null;
+
+  return (
+    <div>
+      <button
+        type="button"
+        className="flex items-center text-zinc-900 transition-colors hover:text-black dark:text-zinc-400 hover:dark:text-white lg:hidden"
+        onClick={() => setTheme(resolvedTheme === 'light' ? 'dark' : 'light')}
+      >
+        {resolvedTheme === 'dark' ? <FiSun size={24} /> : <FiMoon size={24} />}
+      </button>
+    </div>
+  );
+};
+
+const Logo = () => {
+  const [mounted, setMounted] = useState(false);
+  const { resolvedTheme } = useTheme();
+
+  useEffect(() => setMounted(true), []);
+
+  if (!mounted) return null;
+
+  return (
+    <Link href="/" className="flex items-center">
+      {resolvedTheme === 'dark' ? (
+        <Image
+          src="/logo.svg"
+          alt="Logo"
+          width={330}
+          height={40}
+          className="hidden lg:inline-block"
+        />
+      ) : (
+        <Image
+          src="/logo-light.svg"
+          alt="Logo"
+          width={330}
+          height={40}
+          className="hidden lg:inline-block"
+        />
+      )}
+      <Image
+        src="/logo-mini.svg"
+        alt="Logo"
+        width={42}
+        height={20}
+        className="inline-block lg:hidden"
+      />
+    </Link>
+  );
+};
+
 export const Navbar = () => {
-  const { setTheme, resolvedTheme } = useTheme();
   const [isActive, setIsActive] = useState(false);
   return (
     <div className="relative border-b-2 border-zinc-100 dark:border-zinc-800">
@@ -62,45 +123,9 @@ export const Navbar = () => {
             >
               <FiMenu size={24} />
             </button>
-            <Link href="/" className="flex items-center">
-              {resolvedTheme === 'dark' ? (
-                <Image
-                  src="/logo.svg"
-                  alt="Logo"
-                  width={330}
-                  height={40}
-                  className="hidden lg:inline-block"
-                />
-              ) : (
-                <Image
-                  src="/logo-light.svg"
-                  alt="Logo"
-                  width={330}
-                  height={40}
-                  className="hidden lg:inline-block"
-                />
-              )}
-              <Image
-                src="/logo-mini.svg"
-                alt="Logo"
-                width={42}
-                height={20}
-                className="inline-block lg:hidden"
-              />
-            </Link>
+            <Logo />
           </div>
-
-          <div>
-            <button
-              type="button"
-              className="flex items-center text-zinc-900 transition-colors hover:text-black dark:text-zinc-400 hover:dark:text-white lg:hidden"
-              onClick={() =>
-                setTheme(resolvedTheme === 'light' ? 'dark' : 'light')
-              }
-            >
-              {resolvedTheme === 'dark' ? <FiSun size={24} /> : <FiMoon size={24} />}
-            </button>
-          </div>
+          <ThemeSwitcher />
         </div>
 
         <div
