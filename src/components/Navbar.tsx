@@ -1,18 +1,16 @@
-import type { FC, ReactNode } from 'react';
-import { useState } from 'react';
+import { useTheme } from 'next-themes';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { twMerge } from 'tailwind-merge';
-import {
-  FiGithub,
-  FiLinkedin,
-  FiInstagram,
-  FiMenu,
-  FiMoon,
-} from 'react-icons/fi';
+import type { FC, ReactNode } from 'react';
+import { useState } from 'react';
 import { FaDiscord } from 'react-icons/fa';
-import { useTheme } from 'next-themes';
+import {
+  FiGithub, FiInstagram, FiLinkedin, FiMenu,
+  FiMoon,
+  FiSun
+} from 'react-icons/fi';
+import { twMerge } from 'tailwind-merge';
 
 type NavbarItemProps = {
   children: ReactNode;
@@ -100,7 +98,7 @@ export const Navbar = () => {
                 setTheme(resolvedTheme === 'light' ? 'dark' : 'light')
               }
             >
-              <FiMoon size={24} />
+              {resolvedTheme === 'dark' ? <FiSun size={24} /> : <FiMoon size={24} />}
             </button>
           </div>
         </div>
