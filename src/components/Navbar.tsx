@@ -1,93 +1,152 @@
 import type { FC, ReactNode } from 'react';
+import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { twMerge } from 'tailwind-merge';
-import { FiGithub, FiLinkedin, FiInstagram } from 'react-icons/fi';
+import {
+  FiGithub,
+  FiLinkedin,
+  FiInstagram,
+  FiMenu,
+  FiMoon,
+} from 'react-icons/fi';
 import { FaDiscord } from 'react-icons/fa';
+import { useTheme } from 'next-themes';
 
 type NavbarItemProps = {
   children: ReactNode;
   href: string;
+  externalLink?: boolean;
 };
 
-const NavbarItem: FC<NavbarItemProps> = ({ children, href }) => {
+const NavbarItem: FC<NavbarItemProps> = ({ children, href, externalLink }) => {
   const router = useRouter();
   const isActive = router.pathname === href;
   return (
     <li>
-      <Link
-        href={href}
-        className={twMerge(
-          'text-zinc-400',
-          isActive && 'font-semibold text-black dark:text-white',
-        )}
-      >
-        {children}
-      </Link>
+      {!externalLink ? (
+        <Link
+          href={href}
+          className={twMerge(
+            'text-zinc-900 dark:text-zinc-400',
+            isActive && 'font-semibold text-black dark:text-white',
+          )}
+        >
+          {children}
+        </Link>
+      ) : (
+        <a
+          href={href}
+          target="_blank"
+          rel="noreferrer"
+          className="text-zinc-900 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white"
+        >
+          {children}
+        </a>
+      )}
     </li>
   );
 };
 
 export const Navbar = () => {
+  const { setTheme, resolvedTheme } = useTheme();
+  const [isActive, setIsActive] = useState(false);
   return (
-    <nav className="flex items-center justify-between pb-12">
-      <Link href="/">
-        <Image src="/logo.svg" alt="Logo" width={330} height={40} />
-      </Link>
-      <div className="flex items-center gap-6">
-        <ul className="flex items-center gap-8">
-          <NavbarItem href="/">Home</NavbarItem>
-          <NavbarItem href="#about">About</NavbarItem>
-          <NavbarItem href="#projects">Projects</NavbarItem>
-          <NavbarItem href="#team">Team</NavbarItem>
-          <NavbarItem href="#docs">Docs</NavbarItem>
-          <NavbarItem href="#contact">Contact</NavbarItem>
-        </ul>
-        <div className="h-6 border-l border-zinc-100 dark:border-zinc-800" />
-        <ul className="flex items-center gap-4">
-          <li>
-            <a
-              href="https://github.com/rhul-dev"
-              target="_blank"
-              rel="noreferrer"
-              className="text-zinc-400 transition-colors hover:text-black dark:hover:text-white"
+    <div className="relative border-b-2 border-zinc-100 dark:border-zinc-800">
+      <nav className="container relative mx-auto flex flex-col items-stretch justify-start px-6 py-6 lg:flex-row lg:items-center lg:justify-between lg:px-0">
+        <div className="flex items-center justify-between lg:block">
+          <div className="flex items-center gap-6">
+            <button
+              type="button"
+              className="flex items-center text-zinc-900 transition-colors hover:text-black dark:text-zinc-400 hover:dark:text-white lg:hidden"
+              onClick={() => setIsActive(!isActive)}
             >
+              <FiMenu size={24} />
+            </button>
+            <Link href="/" className="flex items-center">
+              {resolvedTheme === 'dark' ? (
+                <Image
+                  src="/logo.svg"
+                  alt="Logo"
+                  width={330}
+                  height={40}
+                  className="hidden lg:inline-block"
+                />
+              ) : (
+                <Image
+                  src="/logo-light.svg"
+                  alt="Logo"
+                  width={330}
+                  height={40}
+                  className="hidden lg:inline-block"
+                />
+              )}
+              <Image
+                src="/logo-mini.svg"
+                alt="Logo"
+                width={42}
+                height={20}
+                className="inline-block lg:hidden"
+              />
+            </Link>
+          </div>
+
+          <div>
+            <button
+              type="button"
+              className="flex items-center text-zinc-900 transition-colors hover:text-black dark:text-zinc-400 hover:dark:text-white lg:hidden"
+              onClick={() =>
+                setTheme(resolvedTheme === 'light' ? 'dark' : 'light')
+              }
+            >
+              <FiMoon size={24} />
+            </button>
+          </div>
+        </div>
+
+        <div
+          className={twMerge(
+            'absolute top-[74px] -left-full z-10 flex w-full flex-col items-stretch gap-6 bg-white px-6 py-8 transition-all dark:bg-zinc-900 lg:static lg:w-auto lg:flex-row lg:items-center lg:px-0 lg:py-0',
+            isActive && 'left-0',
+          )}
+        >
+          <ul className="flex flex-col items-stretch gap-8 lg:flex-row lg:items-center">
+            <NavbarItem href="/">Home</NavbarItem>
+            <NavbarItem href="#about">About</NavbarItem>
+            <NavbarItem href="#projects">Projects</NavbarItem>
+            <NavbarItem href="#team">Team</NavbarItem>
+            <NavbarItem href="#docs">Docs</NavbarItem>
+            <NavbarItem href="#contact">Contact</NavbarItem>
+          </ul>
+
+          <div className="hidden h-6 border-l border-zinc-100 dark:border-zinc-800 lg:inline-block" />
+
+          <ul className="flex items-center gap-4 pt-4 lg:pt-0">
+            <NavbarItem externalLink href="https://github.com/rhul-dev">
               <FiGithub size={24} strokeWidth={2} />
-            </a>
-          </li>
-          <li>
-            <a
+            </NavbarItem>
+            <NavbarItem
+              externalLink
               href="https://www.instagram.com/rhul.dev.club/"
-              target="_blank"
-              rel="noreferrer"
-              className="text-zinc-400 transition-colors hover:text-black dark:hover:text-white"
             >
               <FiInstagram size={24} strokeWidth={2} />
-            </a>
-          </li>
-          <li>
-            <a
+            </NavbarItem>
+            <NavbarItem
+              externalLink
               href="https://www.linkedin.com/company/rhul-dev/"
-              target="_blank"
-              rel="noreferrer"
-              className="text-zinc-400 transition-colors hover:text-black dark:hover:text-white"
             >
               <FiLinkedin size={24} strokeWidth={2} />
-            </a>
-          </li>
-          <li>
-            <a
+            </NavbarItem>
+            <NavbarItem
+              externalLink
               href="https://discord.com/invite/5jySmzhE9u"
-              target="_blank"
-              rel="noreferrer"
-              className="text-zinc-400 transition-colors hover:text-black dark:hover:text-white"
             >
               <FaDiscord size={24} strokeWidth={2} />
-            </a>
-          </li>
-        </ul>
-      </div>
-    </nav>
+            </NavbarItem>
+          </ul>
+        </div>
+      </nav>
+    </div>
   );
 };

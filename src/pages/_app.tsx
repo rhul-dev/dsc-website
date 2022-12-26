@@ -20,8 +20,8 @@ const MyApp: AppType = ({ Component, pageProps }) => {
       />
       <ThemeProvider attribute="class">
         <div className={`${inter.variable} font-sans`}>
-          <main className="container mx-auto pt-12">
-            <Navbar />
+          <Navbar />
+          <main className="container mx-auto pt-4">
             <Component {...pageProps} />
           </main>
         </div>
