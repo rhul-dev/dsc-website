@@ -1,3 +1,33 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.button-primary{
+    background-color: #04AA6D;
+    border-radius: 5px;
+    font-size: 17px;
+    padding: 6px 18px;
+}
+
+.button-primary:hover{
+      animation: bounce 1s;
+
+  }
+
+  @keyframes bounce {
+    0%, 20%, 60%, 100% {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+    }
+  
+    40% {
+      -webkit-transform: translateY(-15px);
+      transform: translateY(-15px);
+    }
+  
+    80% {
+      -webkit-transform: translateY(-7px);
+      transform: translateY(-7px);
+    }
+  }
