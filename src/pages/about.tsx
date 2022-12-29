@@ -7,7 +7,7 @@ const About: FC = () => {
   return (
     <div className='container mx-auto px-10'>
       <div className="flex justify-center">
-      <h1 className='mb-8 font-medium text-2xl'>About Us</h1>
+      <h1 className='about-header mb-8 font-medium text-2xl'>About Us</h1>
       </div>
       <div className='flex justify-center gap-8 mb-10 about-wrap'>
         <Image className='about-img' src={AboutImage} alt='AboutImage' />
