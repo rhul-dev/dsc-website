@@ -5,15 +5,25 @@ import Image from 'next/image';
 
 const About: FC = () => {
   return (
-    <>
+    <div className='container mx-auto px-10'>
       <div className="flex justify-center">
       <h1 className='mb-8 font-medium text-2xl'>About Us</h1>
       </div>
-      <div className='flex justify-center gap-8 mb-10'>
-        <Image src={AboutImage} alt='AboutImage' width={480} height={250}/>
-        <p className='w-2/5'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean finibus suscipit elit, in volutpat massa. Donec ut justo felis. Nulla sit amet fringilla ante, sed venenatis metus. Duis et orci ut diam pulvinar varius nec in odio. Integer placerat tempor felis, in consequat dolor. Vestibulum odio ligula, pellentesque sit amet sapien a, bibendum sollicitudin urna. Duis nunc ligula, bibendum eu sapien ac, facilisis aliquam libero. Cras nec libero ex. Vestibulum varius, justo vel ornare gravida, mauris orci suscipit nisl, pellentesque malesuada nulla arcu a turpis. Nunc dapibus sapien leo, ut malesuada massa blandit ut. Morbi aliquam pellentesque volutpat. Pellentesque eu enim lacinia, tempor tellus sit amet, ultricies dui. Nam eget massa nec neque consequat ullamcorper ut nec arcu. Vivamus eu tortor tempor, imperdiet magna et, eleifend erat. Morbi at eros vitae ex scelerisque finibus.
-        Phasellus consectetur scelerisque augue non ornare. Suspendisse tempus eros urna. Maecenas sollicitudin sapien eu elit condimentum sollicitudin. Donec sodales maximus arcu quis ultrices. Mauris vel ipsum in sem mattis semper ac sit amet massa. Donec vitae metus viverra, efficitur sem finibus, accumsan lectus. Donec at lacinia elit. Pellentesque nisl mi, aliquet sed turpis quis, ullamcorper dictum nulla. Suspendisse at iaculis est. Etiam hendrerit aliquam massa.
-        </p>
+      <div className='flex justify-center gap-8 mb-10 about-wrap'>
+        <Image className='about-img' src={AboutImage} alt='AboutImage' />
+        <div className='w-2/5 about-text'>
+          <p className='mt-10 about-desc'>The <span className='about-highlight'>Royal Holloway Developers Club</span> is a community of curious and open minded
+           individuals interested in <span className='about-highlight'>technology</span>. The club is focused on taking a more  <span className='about-highlight'>practical </span> 
+          and peer-to-peer approach to help bring together many single-minded people while  <span className='about-highlight'>significantly </span> 
+          improving their employability.
+          </p>
+          <hr className='about-divider'></hr>
+          <p className='about-desc'>
+          Our goal is to see the <span className='about-highlight'>developers club</span> become a hub for students from all faculties looking for opportunities to improve their knowledge 
+          (currently within the field of <span className='about-highlight'>Computer Science</span>) and a platform for all providers of opportunities to find potential uptakers (e.g. 
+          CodeGroovers, Student initiated project, UROP, industry, …)
+          </p>
+        </div>
       </div>
       <div className='flex justify-center mb-10'>
         <ul className='list-disc'>
@@ -24,9 +34,12 @@ const About: FC = () => {
         </ul>
       </div>
       <div className='flex justify-center'>
-        <button className='button-primary'>Find out more!</button>
+        <a href='https://docs.google.com/document/d/1KB7sEKcovUKxBzmjd9j5qXQy-MU1Q9e-Zv6xq4rLs_I/edit' 
+           className='button-primary'
+           target="_blank"
+           >Find out more!</a>
       </div>
-    </>
+    </div>
   );
 };
 
