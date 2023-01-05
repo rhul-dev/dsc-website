@@ -53,6 +53,10 @@
 .avatar-wrap {
     display: flex;
     flex-wrap: wrap;
+    width: 82%;
+    align-self: center;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .avatar-card {
@@ -74,7 +78,7 @@
 }
 
 .avatar-card:hover .role{
-    transition: all 0.3s ease;
+    transition: all 0.5s ease;
     opacity: 1;
 }
 
@@ -93,7 +97,7 @@
 }
 .avatar-card:hover:nth-child(3){
     transition: all 0.3s ease;
-    box-shadow: 0 0 15px blue;
+    box-shadow: 0 0 15px lightskyblue;
 }
 .avatar-card:hover:nth-child(4){
     transition: all 0.3s ease;
@@ -101,7 +105,7 @@
 }
 .avatar-card:hover:nth-child(5){
     transition: all 0.3s ease;
-    box-shadow: 0 0 15px green;
+    box-shadow: 0 0 15px lightgreen;
 }
 .avatar-card:hover:nth-child(6){
     transition: all 0.3s ease;
@@ -111,10 +115,9 @@
     transition: all 0.3s ease;
     box-shadow: 0 0 15px purple;
 }
-
-.avatar-card:hover {
-    transition: all 0.2s ease;
-    width: 190px;
+.avatar-card:hover:nth-child(8){
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px salmon;
 }
 
 .about-highlight{

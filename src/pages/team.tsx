@@ -7,6 +7,7 @@ import JakecAvatar from '../../public/avatars/jake-c-avatar.png';
 import MaxAvatar from '../../public/avatars/max-avatar.png';
 import SanjithAvatar from '../../public/avatars/sanjith-avatar.png';
 import SinclairAvatar from '../../public/avatars/sinclair-avatar.png';
+import LiliAvatar from '../../public/avatars/lili-avatar.png';
 
 const Team: FC = () => {
     return (
@@ -20,6 +21,7 @@ const Team: FC = () => {
                 <Avatar src={MaxAvatar} name='Max' title='Founder'/>
                 <Avatar src={SanjithAvatar} name='Sanjith' title='Marketing'/>
                 <Avatar src={SinclairAvatar} name='Sinclair' title='Core Managment'/>
+                <Avatar src={LiliAvatar} name='Lili' title='Core Managment'/>
             </div>
         </>
     );
