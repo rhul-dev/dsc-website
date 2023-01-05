@@ -138,7 +138,7 @@ export const Navbar = () => {
             <NavbarItem href="/">Home</NavbarItem>
             <NavbarItem href="/about">About</NavbarItem>
             <NavbarItem href="#projects">Projects</NavbarItem>
-            <NavbarItem href="#team">Team</NavbarItem>
+            <NavbarItem href="/team">Team</NavbarItem>
             <NavbarItem href="#docs">Docs</NavbarItem>
             <NavbarItem href="#contact">Contact</NavbarItem>
           </ul>
