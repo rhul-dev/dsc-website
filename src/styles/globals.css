@@ -50,20 +50,23 @@
     font-weight: 500;
 }
 
+.avatar-wrap {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .avatar-card {
     height: 160px;
     width: 168px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-right: 20px;
-    margin-left: 20px;
+    margin: 20px 10px;
     min-width: 160px;
     font-family: monospace;
     background-color: rgba(255, 255, 255, 0.05);
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
     border-radius: 15px;
-    backdrop-filter: blur(10px);
 }
 
 .role {
@@ -78,6 +81,35 @@
 .avatar-card:hover {
     transition: all 0.3s ease;
     height: 200px;
+}
+
+.avatar-card:hover:first-child{
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px orange;
+}
+.avatar-card:hover:nth-child(2){
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px palevioletred;
+}
+.avatar-card:hover:nth-child(3){
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px blue;
+}
+.avatar-card:hover:nth-child(4){
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px red;
+}
+.avatar-card:hover:nth-child(5){
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px green;
+}
+.avatar-card:hover:nth-child(6){
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px yellow;
+}
+.avatar-card:hover:nth-child(7){
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px purple;
 }
 
 .avatar-card:hover {
@@ -117,5 +149,21 @@
 
     .about-header{
         margin-bottom: 0;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .avatar-wrap{
+        align-items: center;
+    }
+
+    .avatar-card{
+        width: 90%;
+        height: 180px;
+    }
+
+    .role {
+        opacity: 1;
+        margin-bottom: 10px;
     }
 }

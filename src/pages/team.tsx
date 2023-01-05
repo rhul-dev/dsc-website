@@ -12,7 +12,7 @@ const Team: FC = () => {
     return (
         <>
             <div className="justify-center flex mt-10 mb-10 team-title">Meet the Team</div>
-            <div className="justify-center flex">
+            <div className="avatar-wrap justify-center flex">
                 <Avatar src={AhmdedAvatar} name='Ahmed' title='Project Management'/>
                 <Avatar src={AnhAvatar} name='Anh' title='Core Management'/>
                 <Avatar src={JakebAvatar} name='Jake Barr' title='Core Management'/>
