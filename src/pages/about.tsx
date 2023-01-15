@@ -35,7 +35,7 @@ const About: FC = () => {
       </div>
       <div className='flex justify-center'>
         <a href='https://docs.google.com/document/d/1KB7sEKcovUKxBzmjd9j5qXQy-MU1Q9e-Zv6xq4rLs_I/edit' 
-           className='button-primary'
+           className='flex items-center gap-3 rounded-lg bg-blue-500 px-5 py-2 text-lg font-semibold text-white transition-colors hover:bg-blue-700 btn-primary'
            target="_blank"
            >Find out more!</a>
       </div>
