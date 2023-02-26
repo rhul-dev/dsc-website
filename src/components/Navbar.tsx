@@ -11,7 +11,7 @@ import {
   FiLinkedin,
   FiMenu,
   FiMoon,
-  FiSun
+  FiSun,
 } from 'react-icons/fi';
 import { twMerge } from 'tailwind-merge';
 
@@ -136,9 +136,9 @@ export const Navbar = () => {
         >
           <ul className="flex flex-col items-stretch gap-8 lg:flex-row lg:items-center">
             <NavbarItem href="/">Home</NavbarItem>
-            <NavbarItem href="/about">About</NavbarItem>
+            <NavbarItem href="#about">About</NavbarItem>
             <NavbarItem href="#projects">Projects</NavbarItem>
-            <NavbarItem href="/team">Team</NavbarItem>
+            <NavbarItem href="#team">Team</NavbarItem>
             <NavbarItem href="#docs">Docs</NavbarItem>
             <NavbarItem href="#contact">Contact</NavbarItem>
           </ul>
