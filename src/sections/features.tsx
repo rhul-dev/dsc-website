@@ -6,15 +6,15 @@ import { FeatureCard } from '../components/FeatureCard';
 
 const features: FeatureCardProps[] = [
   {
-    icon: <FiGitMerge size={20} />,
-    title: 'Workshops',
+    icon: <FaRegLightbulb size={20} />,
+    title: 'Ideathons',
+    color: 'blue',
     children:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam pharetra dictum velit vel volutpat. Vestibulum tincidunt est magna, ut cursus nunc euismod eu.',
   },
   {
-    icon: <FaRegLightbulb size={20} />,
-    title: 'Ideathons',
-    color: 'blue',
+    icon: <FiGitMerge size={20} />,
+    title: 'Workshops',
     children:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam pharetra dictum velit vel volutpat. Vestibulum tincidunt est magna, ut cursus nunc euismod eu.',
   },
@@ -29,8 +29,8 @@ const features: FeatureCardProps[] = [
 
 export const Features: FC = () => {
   return (
-    <section className="container mx-auto py-36">
-      <ul className="grid grid-cols-3 gap-6">
+    <section className="container mx-auto pt-12 lg:pt-36">
+      <ul className="grid grid-cols-1 gap-6 lg:grid-cols-3">
         {features.map((feature, index) => (
           <FeatureCard key={`${feature.title}-${index}`} {...feature} />
         ))}

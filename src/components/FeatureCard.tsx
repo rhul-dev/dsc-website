@@ -18,9 +18,12 @@ export const FeatureCard: FC<FeatureCardProps> = ({
     <li
       className={twMerge(
         'rounded-2xl border-2 bg-gradient-to-b p-8',
-        color === 'red' && 'border-red-500/10 from-red-500/5 to-red-500/10',
-        color === 'blue' && 'border-blue-500/10 from-blue-500/5 to-blue-500/10',
-        color === 'pink' && 'border-pink-500/10 from-pink-500/5 to-pink-500/10',
+        color === 'red' &&
+          'border-red-500/10 from-red-500/20 to-red-500/10 dark:border-red-500/10 dark:from-red-500/5 dark:to-red-500/10',
+        color === 'blue' &&
+          'border-blue-500/10 from-blue-500/20 to-blue-500/10 dark:border-blue-500/10 dark:from-blue-500/5 dark:to-blue-500/10',
+        color === 'pink' &&
+          'border-pink-500/10 from-pink-500/20 to-pink-500/10 dark:border-pink-500/10 dark:from-pink-500/5 dark:to-pink-500/10',
       )}
     >
       <div

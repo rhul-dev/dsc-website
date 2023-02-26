@@ -2,7 +2,7 @@ import type { FC } from 'react';
 
 export const About: FC = () => {
   return (
-    <div className="container mx-auto py-36" id="about">
+    <div className="container mx-auto py-12 lg:py-36" id="about">
       <div className="pb-12 text-center text-4xl font-bold">About us</div>
       <div className="mx-auto flex max-w-4xl flex-col gap-3 text-zinc-700 dark:text-zinc-300 [&_strong]:text-black dark:[&_strong]:text-white">
         <p>

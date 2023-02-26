@@ -8,9 +8,11 @@ const Home: NextPage = () => {
   return (
     <>
       <Header />
-      <Features />
-      <About />
-      <Team />
+      <div className="px-6 lg:px-0">
+        <Features />
+        <About />
+        <Team />
+      </div>
     </>
   );
 };
